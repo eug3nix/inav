@@ -28,7 +28,6 @@
 #define TARGET_BOARD_IDENTIFIER "FLMO_STELLARF7"
 #define USBD_PRODUCT_STRING  "FLMO_STELLARF7"
 
-//#define LED0                    PA14
 #define LED1                    PB2
 
 #define BEEPER                  PC3
@@ -43,12 +42,20 @@
 #define SPI1_MISO_PIN           PA6
 #define SPI1_MOSI_PIN           PA7
 
-//#define USE_DUAL_GYRO
-
 #define USE_IMU_BMI270
 #define IMU_BMI270_ALIGN        CW180_DEG
 #define BMI270_SPI_BUS          BUS_SPI1
 #define BMI270_CS_PIN           PA4
+
+//MPU6500 handles ICM20602 stuff
+#define USE_IMU_MPU6500
+#define USE_EXTI
+#define USE_MPU_DATA_READY_SIGNAL
+#define IMU_MPU6500_ALIGN       CW270_DEG
+#define MPU6500_CS_PIN          PA4 
+#define MPU6500_SPI_BUS         BUS_SPI1
+#define MPU6500_EXTI_PIN        PC4
+
 
 // *************** I2C /Baro/Mag *********************
 #define USE_I2C
@@ -144,7 +151,7 @@
 
 // *************** PINIO ***************************
 #define USE_PINIO
-#define USE_PINIOBOX //pinio comments below are incorrect
+#define USE_PINIOBOX
 #define PINIO1_PIN                  PC14 // VTX power switcher
 #define PINIO2_PIN                  PA15 // 2xCamera switcher
 #define PINIO3_PIN                  PC15 // 2xCamera switcher
